@@ -32,9 +32,9 @@ module CompilerSupport
 
     <<-END_EXPECTED
 (function() {
-  this.#{template_namespace} || (this.#{template_namespace} = {});
-  this.#{template_namespace}[#{template_name.dump}] = Handlebars.template(#{compiled_hbs});
-  return this.#{template_namespace}[#{template_name.dump}];
+  window.#{template_namespace} || (window.#{template_namespace} = {});
+  window.#{template_namespace}[#{template_name.dump}] = Handlebars.template(#{compiled_hbs});
+  return window.#{template_namespace}[#{template_name.dump}];
 }).call(this);
     END_EXPECTED
   end
